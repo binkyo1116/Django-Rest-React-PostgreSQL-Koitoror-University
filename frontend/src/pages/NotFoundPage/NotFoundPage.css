@@ -1,0 +1,93 @@
+/* COLOR VARIABLES */
+
+:root {
+  --color-primary: #fd6f6f;
+  --color-grey-dark-1: #333;
+
+}
+
+
+.not-found {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+    /* padding: 3rem; */
+    font-family: 'Montserrat', sans-serif;
+    /* @media only screen and (max-width: 37.5em) {
+      font-size: 20rem;
+    } */
+    /* width: 100vw;
+    height: 100vh; */
+}
+
+.not-found + h1 {
+      font-size: 23rem;
+      margin: 0;
+      font-weight: 900;
+      background: url(https://static1.squarespace.com/static/56e85432b09f95498f330381/t/58fcf0f217bffcd18b17d71e/1492971763817/Why-Do-Stars-All-Look-Almost-the-Same-Size-ftr.jpg)  -10rem -4rem no-repeat;
+      /* -webkit-background-clip: text; */
+      -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 33.125em) {
+  .not-found {
+      font-size: 16rem;
+  }
+}
+
+@media only screen and (max-width: 26.563em) {
+  .not-found {
+      font-size: 13rem;
+  }
+}
+
+@media only screen and (max-width: 20em) {
+  .not-found {
+      font-size: 11rem;
+  }
+}
+
+.not-found-description {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+}
+
+.not-found-description + h3 {
+        color: #000;
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+}
+  
+.not-found-description + p {
+        color: #000;
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        margin-top: 0;
+        text-align: center;
+}
+  
+.not-found-description + a{
+        font-size: 1.4rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        background: var(--color-primary);
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        border-radius: 4rem;
+        color: #fff;
+        font-weight: 700;
+        -webkit-box-shadow: 0 .4rem 1.5rem -.5rem #0046d5;
+        box-shadow: 0 .4rem 1.5rem -.5rem #0046d5;
+}
+
+.not-found-description, :hover{
+    color: var(--color-primary);
+    background: var(--color-grey-dark-1);
+}

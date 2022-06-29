@@ -1,0 +1,34 @@
+.home-page {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.home-page .home-overlay {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding: 50px; */
+    color: #FFF;
+    background-image: linear-gradient(135deg,var(--active) 10%,var(--main-color) 100%);
+}
+.home-page .home-overlay h2 {
+    font-family: 'Dancing Script', cursive;
+    /* font-size: 3.5rem; */
+    margin-bottom: 10vh;
+    max-width: 768px;
+}
+.home-page .home-overlay h3, .home-page .home-overlay p {
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+.home-page .home-overlay a {
+    color: #8827ff;
+}

@@ -1,0 +1,1 @@
+gunicorn backend.app.wsgi.prod --bind 0.0.0.0:8000

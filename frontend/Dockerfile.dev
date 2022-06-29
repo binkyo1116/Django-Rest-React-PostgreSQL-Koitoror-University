@@ -1,0 +1,41 @@
+# FROM node:alpine
+FROM node:16-slim
+
+WORKDIR /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+# Copy package.json and install packages
+COPY frontend/package.json .
+# COPY package.json .
+
+
+RUN npm install -g npm@8.3.2
+
+# Copy other project files and build
+# COPY . .
+COPY frontend/public public
+COPY frontend/src src
+
+RUN npm install
+
+# RUN yarn install
+# RUN yarn install --ignore-platform
+# RUN yarn install --ignore-platform && yarn cache clean
+# RUN yarn install && yarn cache clean
+
+
+
+# RUN npm run build
+# RUN yarn build
+# CMD ["yarn", "run", "build"]
+
+
+ENV PORT 3000
+EXPOSE $PORT
+
+# CMD ["npm", "run", "dev"]
+# CMD ["yarn", "dev"]
+# CMD ["yarn", "run", "dev"]
+# CMD ["yarn", "start"]
+# CMD ["yarn", "run", "start"]

@@ -1,0 +1,10 @@
+env
+venv
+**/*.pyc
+**/__pycache__
+**/migrations
+db.sqlite3
+Pipfile
+Pipfile.lock
+.vscode/
+.cache/

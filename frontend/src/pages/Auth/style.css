@@ -1,0 +1,213 @@
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800'); */
+.text-center {
+	text-align: center;
+}
+.auth-page .auth-page-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	/* margin: -20px */
+}
+.auth-page .mobile-auth-wrapper {
+	padding: 30px 20px;
+}
+.auth-page .auth-container h1 {
+	font-weight: bold;
+	margin: 0;
+	color: #fff;
+}
+.auth-page .ant-form-item-explain-error {
+	font-size: 13px;
+}
+.auth-page .auth-container h2.ant-typography {
+	text-align: center;
+}
+.auth-page .overlay-panel p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+.auth-page .option-text {
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.auth-page .auth-container {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: visible;
+	width: 992px;
+	max-width: 100%;
+	min-height: 700px;
+}
+.auth-page .form-container form {
+	background: #fff;
+	padding: 50px 30px;
+	height: 100%;
+	margin: 100px 0px 0px 0px;
+	max-width: 430px;
+}
+.auth-page .form-container form h1 {
+	color: var(--text-color);
+	text-align: center;
+}
+.auth-page .social-container .social {
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 7px;
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+	font-size: 20px;
+	color: #fff;
+}
+.auth-page .social-container {
+	margin: 20px 0;
+	text-align: center;
+}
+.auth-page .social-container .facebook {
+	background: #4267B2;
+	border-color: #4267B2;
+}
+.auth-page .social-container .google {
+	background: #db4a39;
+	border-color: #db4a39;
+}
+.auth-page .social-container .linkedin {
+	background: #0e76a8;
+	border-color: #0e76a8;
+}
+.auth-page .form-container input {
+	font-size: 14px;
+}
+.auth-page .bg-gradient {
+	background: var(--main-color);
+	background: -webkit-linear-gradient(to right,#38ef7d,var(--main-color));
+	background: linear-gradient(to right,#38ef7d,var(--main-color));
+}
+.auth-page button {
+	color: #fff;
+	font-size: 12px;
+	letter-spacing: 1px;
+	transition: transform 20ms ease-in;
+	cursor: pointer;
+	margin: 8px 0;
+	width: 100%;
+	white-space: normal;
+}
+.auth-page button:active {
+	transform: scale(0.95);
+}
+.auth-page button:focus {
+	outline: none;
+}
+.auth-page .form-submit-btn {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.auth-page button.ghost {
+	background: transparent;
+	border-color: #fff;
+}
+.auth-page .form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+.auth-page .sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+	/* margin: 0px 0px 0px 50px; */
+	
+}
+.auth-page .sign-up-container {
+	left: 0;
+	width: 50%;
+	z-index: 1;
+	opacity: 0;
+}
+.auth-page .overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+.auth-page .overlay {
+	height: 100%;
+	color: #fff;
+	position: relative;
+	left: -100%;
+	width: 200%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+.auth-page .overlay-panel {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0 40px;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+.auth-page .overlay-panel button, .auth-page .overlay-panel button {
+	color: #fff !important;
+	background-color: transparent !important;
+	border-color: #fff !important;
+}
+.auth-page .overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+.auth-page .overlay-left {
+	transform: translateX(-20%);
+}
+.auth-page .ant-form-item-control-input-content {
+	justify-content: space-between;
+	display: flex;
+	font-size: 14px;
+}
+.auth-page .auth-container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+.auth-page .auth-container.right-panel-active .overlay-container {
+	transform: translateX(-100%);
+}
+.auth-page .auth-container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+}
+.auth-page .auth-container.right-panel-active .overlay {
+	transform: translateX(50%);
+}
+.auth-page .auth-container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+.auth-page .auth-container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.ant-checkbox-input {
+	opacity: 50
+}

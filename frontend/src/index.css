@@ -1,0 +1,74 @@
+.ant-input-affix-wrapper {
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+#layout {
+  height: 100vh !important;
+  padding: 5vh !important;
+}
+
+.ant-layout-footer {
+  position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding:10px;
+	max-height: 40px;
+  z-index: 102;
+
+}
+
+.ant-form-item-control-wrapper {
+  max-width: 400px;
+  margin-left: 30px;
+}
+
+.ant-menu-item {
+  float: right;
+  border-radius: 15px 15px 15px;
+}
+
+.ant-layout-header {
+  height: 48px !important;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+* {
+box-sizing: border-box;
+}
+
+:root{
+--main-color: #11998e;
+--text-color: #11425D;
+--active: #38ef7d;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.dynamic-delete-button {
+  margin: 0 8px;
+  cursor: pointer;
+  position: relative;
+  /* top: 4px; */
+  /* font-size: 24px; */
+  color: #999;
+  transition: all 0.3s;
+}
+
+/* .dynamic-delete-button:hover {
+  color: #777;
+}
+.dynamic-delete-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+} */

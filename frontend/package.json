@@ -1,0 +1,54 @@
+{
+  "name": "koitoror-university",
+  "version": "2.1.0",
+  "engines": {
+    "node": "16.4.2",
+    "npm": "8.3.2"
+  },
+  "resolutions": {
+    "**/**/fsevents": "^2.3.2"
+  },
+  "private": true,
+  "proxy": "https://koitoror-university.herokuapp.com",
+  "dependencies": {
+    "antd": "^4.18.5",
+    "axios": ">=0.25.0",
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "http": "0.0.0",
+    "jwt-decode": "^3.1.2",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
+    "serve": "^13.0.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "react-scripts start",
+    "postbuilder": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "postinstaller": "npm run build",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run postbuilder"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

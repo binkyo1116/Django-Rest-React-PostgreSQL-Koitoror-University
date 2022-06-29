@@ -1,0 +1,130 @@
+version: "3.9"
+
+services:
+  frontend-react:
+    image: koitoror-university-frontend:2.1.0
+    build:
+      context: ./frontend/
+      # args:
+        # NODE_ENV: production
+    command: npm start
+    ports:
+      - 5000:5000 #production
+    volumes:
+      - ./frontend/:/app
+      # - /app/build
+      # - /frontend/node_modules:/app/node_modules
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_NODE_ENV=production
+      # - SESSION_SECRET=${SESSION_SECRET}
+
+  backend-django-app:
+    # image: koitoror-university-backend
+    container_name: backend-django-app
+    build:
+      context: ./backend/
+    restart: always
+    volumes:
+      - ./backend:/backend
+      - ./frontend/build:/frontend/build
+      - static-data:/vol/web
+    command: >
+      sh -c "python backend/manage.py wait_for_db &&
+             python backend/manage.py migrate &&
+             python backend/manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS_PROD=${ALLOWED_HOSTS_PROD}
+      - CORS_ORIGIN_WHITELIST=${CORS_ORIGIN_WHITELIST}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+    # env_file:
+    #   - .env
+    depends_on:
+      - db
+
+  backend-django-app2:
+    # image: koitoror-university-backend
+    container_name: backend-django-app2
+    build:
+      context: ./backend/
+    restart: always
+    volumes:
+      - ./backend:/backend
+      - ./frontend/build:/frontend/build
+      - static-data:/vol/web
+    command: >
+      sh -c "python backend/manage.py wait_for_db &&
+             python backend/manage.py migrate &&
+             python backend/manage.py runserver 0.0.0.0:8000"
+      # sh -c "chmod u+x backend/scripts/release.sh && ./backend/scripts/release.sh"
+    ports:
+      - 8001:8001
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS_PROD=${ALLOWED_HOSTS_PROD}
+      - CORS_ORIGIN_WHITELIST=${CORS_ORIGIN_WHITELIST}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+    # env_file:
+    #   - .env
+    depends_on:
+      - db2
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+  db2:
+    image: postgres:13-alpine
+    restart: always
+    ports:
+      - 5433:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+  proxy:
+    build:
+      context: ./proxy/
+    restart: always
+    ports:
+      - 8008:8080
+      # - 80:8000
+      # - "80:80"
+    environment:
+      - APP_HOST=backend-django-app
+    volumes:
+      - static-data:/vol/static
+    depends_on:
+      - backend-django-app
+
+  prometheus:
+      image: prom/prometheus
+      volumes:
+        - ./prometheus/:/etc/prometheus/
+      ports:
+        - "9090:9090"
+
+volumes:
+  postgres-data:
+  static-data:
